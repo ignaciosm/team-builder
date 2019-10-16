@@ -5,6 +5,7 @@ const Form = props => {
   // console.log('form props', props.members)
 
   const [newmember, setNewMember] = useState({
+    id: String(Date()),
     firstname: "",
     lastname: "",
     is_tl: false,
@@ -15,14 +16,13 @@ const Form = props => {
     event.preventDefault();
     props.addMember(newmember);
     setNewMember({
+      id: "",
       firstname: "",
       lastname: "",
       is_tl: false,
     });
     console.log('after adding:', newmember)
   };
-
-
 
   const handleChanges = e => {
     setNewMember({ ...newmember, [e.target.id]: e.target.type === 'checkbox' ? e.target.checked : e.target.value });
@@ -32,7 +32,7 @@ const Form = props => {
 console.log('newmember', newmember)
   return (
     <form onSubmit={submitForm}>
-      <label htmlFor="firstname">First name </label>
+      <label htmlFor="firstname">First name </label>      
       <input 
         type="text"
         id='firstname'

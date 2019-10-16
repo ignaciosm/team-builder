@@ -6,10 +6,12 @@ const Card = props => {
   return (
 
     props.members.map(memb => (
-      <div className="card">
+      <div key={memb.id} className="card">
+        {/* <p>{`id: ${String(memb.id)}`}</p> */}
         <p>{`First name: ${memb.firstname}`}</p>
         <p>{`Last name: ${memb.lastname}`}</p>
         <p>{`Is TL?: ${memb.is_tl}`}</p>
+        <button className="edit">Edit</button>
       </div>
     ))
     
